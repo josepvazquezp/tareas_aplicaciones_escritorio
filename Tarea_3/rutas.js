@@ -3,7 +3,9 @@ const express = require('express');
 
 function cargarHome(req, res) {
     console.log('inicio');
-    res.sendFile(path.join(__dirname, 'views', 'inicio.html'));
+    res.render('inicio', {
+        titulo: 'Presentación'
+    });
 }
 
 module.exports = function(app) {
@@ -11,22 +13,28 @@ module.exports = function(app) {
 
     app.get('/bandas', function(req, res) {
         console.log('bandas');
-        res.sendFile(path.join(__dirname, 'views', 'bandas.html'));
+        res.render('bandas', {
+            titulo: 'Bandas'
+        });
     });
 
     app.get('/proyectos', function(req, res) {
         console.log('proyectos');
-        res.sendFile(path.join(__dirname, 'views', 'proyectos.html'));
+        res.render('proyectos', {
+            titulo: 'Proyectos'
+        });
     });
 
     app.get('/hobbies', function(req, res) {
         console.log('hobbies');
-        res.sendFile(path.join(__dirname, 'views', 'hobbies.html'));
+        res.render('hobbies', {
+            titulo: 'Hobbies'
+        });
     });
 
     app.get('/', cargarHome);
     
     app.get('*', function(req, res) {
-        res.status(404).sendFile(path.join(__dirname, 'views', 'not_found.html'));;
+        res.status(404).sendFile(path.join(__dirname, 'src','views', 'not_found.html'));
     });
 }
