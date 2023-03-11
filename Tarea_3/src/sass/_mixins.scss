@@ -1,0 +1,20 @@
+@import "colors";
+
+@mixin up-down-format {
+    height: 80px;
+    width: 100%;
+    background-color: $up-down-color;
+    text-align: center;
+}
+
+@mixin tablet {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
