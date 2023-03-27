@@ -1,0 +1,13 @@
+<div *ngFor="let item of infos">
+    <h1>
+        {{item.tittle}}
+    </h1>
+    <hr>
+    <ul *ngFor="let value of item.elements">
+        <li>{{value}}</li>
+    </ul>
+    <div *ngIf="item.br">
+        <br>
+        <br>
+    </div>
+</div>
